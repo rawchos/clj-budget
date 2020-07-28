@@ -1,4 +1,4 @@
-(ns util.core
+(ns clj-budget.util
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io])
   (:import (java.io PushbackReader)))

@@ -1,5 +1,5 @@
-(ns util.core-test
-  (:require [util.core :as util]
+(ns clj-budget.util-test
+  (:require [clj-budget.util :as util]
             [midje.sweet :refer [fact
                                  facts
                                  =>]]))
