@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'cri'
+require 'json'
+
+basic_help = Cri::Command.new_basic_help
+
+base_bcli = Cri::Command.define do
+  name        'bcli'
+  usage       'bcli {args}'
+  summary     'mocks the bcli command'
+  description 'Root command used to mock the bcli cli.'
+end
+
+budget_command = Cri::Command.define do
+  name        'budget'
+  usage       'budget [options]'
+  summary     'base command for budget interactions'
+  description 'Base command for budget interations'
+end
+base_bcli.add_command budget_command
+
+budget_list_command = Cri::Command.define do
+  name 'list'
+  usage 'list'
+  summary 'budget list command'
+  description 'budget list command'
+
+  run do |opts, args|
+    puts `clj -m clj-budget.command-line :list-budgets`
+  end
+end
+budget_command.add_command budget_list_command
+budget_command.add_command basic_help
+
+base_bcli.add_command basic_help
+base_bcli.run(ARGV)

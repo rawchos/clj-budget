@@ -1,5 +1,5 @@
-(ns clj-budget.budget)
+(ns clj-budget.budget
+  (:require [clj-budget.common :refer [all-budgets]]))
 
-(defn -main []
-  (println "Basic hello world example for now"))
-
+(defn list-budgets []
+  (apply println (map :budget-name (all-budgets))))
