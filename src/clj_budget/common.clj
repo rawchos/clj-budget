@@ -5,3 +5,6 @@
 
 (defn all-budgets []
   (:budgets @read-budgets))
+
+(defn selected-budget []
+  (first (filter #(:selected %) (all-budgets))))

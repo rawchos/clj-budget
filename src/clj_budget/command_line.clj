@@ -1,11 +1,13 @@
 (ns clj-budget.command-line
-  (:require [clj-budget.budget :refer [list-budgets]]))
+  (:require [clj-budget.budget :refer [list-budgets]]
+            [clj-budget.income :refer [list-incomes]]))
 
 (defn unknown-function [function-key]
   (println (format "No function defined for key: %s" function-key)))
 
 (def cli-functions
-  {:list-budgets list-budgets})
+  {:list-budgets list-budgets
+   :list-incomes list-incomes})
 
 (defn cli-function [function-key]
   (let [skey (read-string function-key)]

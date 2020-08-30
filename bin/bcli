@@ -9,8 +9,8 @@ basic_help = Cri::Command.new_basic_help
 base_bcli = Cri::Command.define do
   name        'bcli'
   usage       'bcli {args}'
-  summary     'mocks the bcli command'
-  description 'Root command used to mock the bcli cli.'
+  summary     'root command for the budget cli'
+  description 'Root command used to interact with budgets'
 end
 
 budget_command = Cri::Command.define do
@@ -22,9 +22,9 @@ end
 base_bcli.add_command budget_command
 
 budget_list_command = Cri::Command.define do
-  name 'list'
-  usage 'list'
-  summary 'budget list command'
+  name        'list'
+  usage       'list'
+  summary     'budget list command'
   description 'budget list command'
 
   run do |opts, args|
@@ -33,6 +33,27 @@ budget_list_command = Cri::Command.define do
 end
 budget_command.add_command budget_list_command
 budget_command.add_command basic_help
+
+income_command = Cri::Command.define do
+  name        'income'
+  usage       'income [options]'
+  summary     'base command for income interactions'
+  description 'Base command for income interactions'
+end
+income_command.add_command basic_help
+base_bcli.add_command income_command
+
+income_list_command = Cri::Command.define do
+  name        'list'
+  usage       'list'
+  summary     'lists incomes for selected budget'
+  description 'Lists incomes for selected budget'
+
+  run do |opts, args|
+    puts `clj -m clj-budget.command-line :list-incomes`
+  end
+end
+income_command.add_command income_list_command
 
 base_bcli.add_command basic_help
 base_bcli.run(ARGV)
