@@ -28,7 +28,7 @@ budget_list_command = Cri::Command.define do
   description 'budget list command'
 
   run do |opts, args|
-    puts `clj -m clj-budget.command-line :list-budgets`
+    puts `clj -M -m clj-budget.command-line :list-budgets`
   end
 end
 budget_command.add_command budget_list_command

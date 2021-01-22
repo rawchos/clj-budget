@@ -9,3 +9,6 @@ pom.xml.asc
 /.lein-*
 /.nrepl-port
 /budget-data
+/.clj-kondo
+/.lsp
+/.calva
