@@ -44,21 +44,3 @@
   ([tag]
    (doseq [income (incomes tag)]
      (print-income income))))
-
-(comment
-; (print-incomes :first)
-
-(defn category-amount [categories expense-type]
-  (->> (filter #(= expense-type (:expense-type %)) categories)
-       (map :goal)
-       (reduce +)))
-
-;; Determine amount needed for all categories if split
-;; between 24 total paychecks (or go with 26 if needed)
-(let [categories (:categories (selected-budget))
-      monthly (-> (category-amount categories :monthly)
-                   (* 12))
-      yearly (category-amount categories :yearly)]
-  (println "Monthly: " (/ monthly 24))
-  (println "Yearly: " (/ yearly 24)))
-)
