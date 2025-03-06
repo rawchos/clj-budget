@@ -1,1 +1,1 @@
-bin/kaocha
+lein test

@@ -8,3 +8,4 @@
 
 (defn selected-budget []
   (first (filter #(:selected %) (all-budgets))))
+
