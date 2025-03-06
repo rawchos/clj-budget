@@ -71,7 +71,7 @@
 ; (print-incomes :third-quarterly)  ; aug
 (print-incomes :bonus) ; nov
 (print-incomes :first)
-; (print-incomes :second)
+(print-incomes :second)
 
 ;; I have no idea what these were?
 ; "1fmee5dp4nla90377" 
