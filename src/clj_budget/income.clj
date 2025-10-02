@@ -71,8 +71,10 @@
 ; (print-incomes :third-quarterly)  ; aug
 (comment
   (print-incomes :bonus) ; nov
+  (print-incomes :tax-refund) ; nov
   (print-incomes :first)
   (print-incomes :second)
+  (+ 4700 4660)
   )
 
 ;; I have no idea what these were?
